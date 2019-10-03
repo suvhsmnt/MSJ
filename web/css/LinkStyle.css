@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 14, 2018, 11:47:49 AM
+    Author     : sum
+*/
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: DodgerBlue;
+}
+
+.flex-container > div {
+    background-color: #008B8B;
+    width: 150px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+.back{
+   background-color: #4682B4;  
+    
+}
+.containforprofile{
+    width:215px;
+    height:235px;
+    margin:auto;   
+    background-color: #4682B4;
+    border: 5px solid #4682B4;
+    border-radius: 4px;
+}
+.profilepic { 
+    width:205px;
+    height:200px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    opacity: 1;
+
+}
+
+.profilename {
+    
+    margin-left: 10px; 
+    text-align:center;
+    border: 1px solid #4682B4;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    color: white;
+}
+.containforprofile:hover .image {
+    opacity: 0.3;
+}
+
+.containforprofile:hover .profilepicmiddle {
+    opacity: 1;
+}
+.popup {
+    background-color: #4682B4;
+    color: white;
+    font-size: 11px;
+    padding: 16px 32px;
+}
+.profilepicmiddle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.valfield{
+   width:270px;
+    height:100px;
+     margin-left: 24px;
+    margin-top: 15px;
+    display: inline;
+    float:left;
+    background-color: #4682B4;
+    border: 5px solid #4682B4;
+    border-radius: 4px;
+}

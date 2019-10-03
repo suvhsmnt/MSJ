@@ -26,22 +26,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class WorkerController {
-     static Logger logger = Logger.getLogger(WorkerController.class);
+
+    static Logger logger = Logger.getLogger(WorkerController.class);
     @Autowired
     private Service service;
     private LoginDetailsBean loginDetails;
-   @RequestMapping(value = "/Workerlist.htm")
-    public String viewHome(ModelMap model) {
+
+    @RequestMapping(value = "/Workerlist.htm")
+    public String viewHome(ModelMap model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
         try {
-//            session = request.getSession(false);
-//            loginDetails = (LoginDetailsBean) session.getAttribute("LoginDetails");
-//            logger.info("session check");
-//             if(session != null && !session.isNew()) {
-////               return "redirect:/login.htm";
-//            } else {
-////                logger.info("Enter Data Binding Method:::::::::::1"+loginDetails.getName());  
-//            return "redirect:/login.htm";
-//               }
+            session = request.getSession(false);
+            loginDetails = (LoginDetailsBean) session.getAttribute("LoginDetails");
+            logger.info("Enter checking session method:::::::::::::2");
+            if (loginDetails == null) {
+                return "redirect:/login.htm";
+            }
             logger.info("Enter inside viewHome() method:::::::::::::1");
             List<LoginDetailsBean> list = null;
             logger.info("Enter inside viewHome() method:::::::::::::2");
@@ -62,4 +61,3 @@ public class WorkerController {
 
     }
 }
-

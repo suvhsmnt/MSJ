@@ -1,9 +1,7 @@
 package ms.Jwellery.presistence;
-// Generated Feb 9, 2018 4:44:59 PM by Hibernate Tools 4.3.1
+// Generated Sep 29, 2018 7:40:44 PM by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
-import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -17,31 +15,33 @@ public class WorkerRegistration  implements java.io.Serializable {
      private String workerName;
      private String workerAddress;
      private String workerPassword;
-     private int passToken;
      private String workerMobile;
      private byte[] workerImage;
      private String imageName;
-     private BigDecimal workerGold;
-     private BigDecimal workerNetbal;
-     private int workerStone;
+     private String workerType;
+     private String forgotPassword;
+     private String workerStatus;
+     private String workerSalary;
+     private String workerAddedBy;
      private Date logDt;
 
     public WorkerRegistration() {
     }
 
-    public WorkerRegistration(WorkerRegistrationId id, String workerEmail, String workerName, String workerAddress, String workerPassword, int passToken, String workerMobile, byte[] workerImage, String imageName, BigDecimal workerGold, BigDecimal workerNetbal, int workerStone, Date logDt) {
+    public WorkerRegistration(WorkerRegistrationId id, String workerEmail, String workerName, String workerAddress, String workerPassword, String workerMobile, byte[] workerImage, String imageName, String workerType, String forgotPassword, String workerStatus, String workerSalary, String workerAddedBy, Date logDt) {
        this.id = id;
        this.workerEmail = workerEmail;
        this.workerName = workerName;
        this.workerAddress = workerAddress;
        this.workerPassword = workerPassword;
-       this.passToken = passToken;
        this.workerMobile = workerMobile;
        this.workerImage = workerImage;
        this.imageName = imageName;
-       this.workerGold = workerGold;
-       this.workerNetbal = workerNetbal;
-       this.workerStone = workerStone;
+       this.workerType = workerType;
+       this.forgotPassword = forgotPassword;
+       this.workerStatus = workerStatus;
+       this.workerSalary = workerSalary;
+       this.workerAddedBy = workerAddedBy;
        this.logDt = logDt;
     }
    
@@ -80,13 +80,6 @@ public class WorkerRegistration  implements java.io.Serializable {
     public void setWorkerPassword(String workerPassword) {
         this.workerPassword = workerPassword;
     }
-    public int getPassToken() {
-        return this.passToken;
-    }
-    
-    public void setPassToken(int passToken) {
-        this.passToken = passToken;
-    }
     public String getWorkerMobile() {
         return this.workerMobile;
     }
@@ -108,26 +101,40 @@ public class WorkerRegistration  implements java.io.Serializable {
     public void setImageName(String imageName) {
         this.imageName = imageName;
     }
-    public BigDecimal getWorkerGold() {
-        return this.workerGold;
+    public String getWorkerType() {
+        return this.workerType;
     }
     
-    public void setWorkerGold(BigDecimal workerGold) {
-        this.workerGold = workerGold;
+    public void setWorkerType(String workerType) {
+        this.workerType = workerType;
     }
-    public BigDecimal getWorkerNetbal() {
-        return this.workerNetbal;
-    }
-    
-    public void setWorkerNetbal(BigDecimal workerNetbal) {
-        this.workerNetbal = workerNetbal;
-    }
-    public int getWorkerStone() {
-        return this.workerStone;
+    public String getForgotPassword() {
+        return this.forgotPassword;
     }
     
-    public void setWorkerStone(int workerStone) {
-        this.workerStone = workerStone;
+    public void setForgotPassword(String forgotPassword) {
+        this.forgotPassword = forgotPassword;
+    }
+    public String getWorkerStatus() {
+        return this.workerStatus;
+    }
+    
+    public void setWorkerStatus(String workerStatus) {
+        this.workerStatus = workerStatus;
+    }
+    public String getWorkerSalary() {
+        return this.workerSalary;
+    }
+    
+    public void setWorkerSalary(String workerSalary) {
+        this.workerSalary = workerSalary;
+    }
+    public String getWorkerAddedBy() {
+        return this.workerAddedBy;
+    }
+    
+    public void setWorkerAddedBy(String workerAddedBy) {
+        this.workerAddedBy = workerAddedBy;
     }
     public Date getLogDt() {
         return this.logDt;

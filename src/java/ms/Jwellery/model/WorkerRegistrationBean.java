@@ -13,6 +13,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
  * @author Suvh
  */
 public class WorkerRegistrationBean {
+
     private String Name;
     private String Email;
     private String Phone;
@@ -21,11 +22,21 @@ public class WorkerRegistrationBean {
     private String ADDRESS;
     private String ADHAR;
     private BigDecimal GOLD;
+    private BigDecimal Loss;
+    private BigDecimal Salary;
+    private String Type;
+    private String Username;
     private BigDecimal NETBAL;
     private int STONE;
     private CommonsMultipartFile filedata;
-   private String fileName;
-   private byte[] USER_IMAGE;
+    private String fileName;
+    private byte[] USER_IMAGE;
+    private String GST;
+    private String CID;
+    private String Worker_des;
+   private String ROLE;
+    private String WORKER_ADDED_BY;
+    private String WORKER_ID;
     /**
      * @return the Name
      */
@@ -85,8 +96,6 @@ public class WorkerRegistrationBean {
     /**
      * @return the rePassword
      */
-
-
     /**
      * @return the ADDRESS
      */
@@ -211,5 +220,145 @@ public class WorkerRegistrationBean {
      */
     public void setRepassword(String repassword) {
         this.repassword = repassword;
+    }
+
+    /**
+     * @return the GST
+     */
+    public String getGST() {
+        return GST;
+    }
+
+    /**
+     * @param GST the GST to set
+     */
+    public void setGST(String GST) {
+        this.GST = GST;
+    }
+
+    /**
+     * @return the CID
+     */
+    public String getCID() {
+        return CID;
+    }
+
+    /**
+     * @param CID the CID to set
+     */
+    public void setCID(String CID) {
+        this.CID = CID;
+    }
+
+    /**
+     * @return the Loss
+     */
+    public BigDecimal getLoss() {
+        return Loss;
+    }
+
+    /**
+     * @param Loss the Loss to set
+     */
+    public void setLoss(BigDecimal Loss) {
+        this.Loss = Loss;
+    }
+
+    /**
+     * @return the Salary
+     */
+    public BigDecimal getSalary() {
+        return Salary;
+    }
+
+    /**
+     * @param Salary the Salary to set
+     */
+    public void setSalary(BigDecimal Salary) {
+        this.Salary = Salary;
+    }
+
+    /**
+     * @return the Type
+     */
+    public String getType() {
+        return Type;
+    }
+
+    /**
+     * @param Type the Type to set
+     */
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+
+    /**
+     * @return the Username
+     */
+    public String getUsername() {
+        return Username;
+    }
+
+    /**
+     * @param Username the Username to set
+     */
+    public void setUsername(String Username) {
+        this.Username = Username;
+    }
+
+    /**
+     * @return the Worker_des
+     */
+    public String getWorker_des() {
+        return Worker_des;
+    }
+
+    /**
+     * @param Worker_des the Worker_des to set
+     */
+    public void setWorker_des(String Worker_des) {
+        this.Worker_des = Worker_des;
+    }
+
+    /**
+     * @return the ROLE
+     */
+    public String getROLE() {
+        return ROLE;
+    }
+
+    /**
+     * @param ROLE the ROLE to set
+     */
+    public void setROLE(String ROLE) {
+        this.ROLE = ROLE;
+    }
+
+    /**
+     * @return the WORKER_ADDED_BY
+     */
+    public String getWORKER_ADDED_BY() {
+        return WORKER_ADDED_BY;
+    }
+
+    /**
+     * @param WORKER_ADDED_BY the WORKER_ADDED_BY to set
+     */
+    public void setWORKER_ADDED_BY(String WORKER_ADDED_BY) {
+        this.WORKER_ADDED_BY = WORKER_ADDED_BY;
+    }
+
+    /**
+     * @return the WORKER_ID
+     */
+    public String getWORKER_ID() {
+        return WORKER_ID;
+    }
+
+    /**
+     * @param WORKER_ID the WORKER_ID to set
+     */
+    public void setWORKER_ID(String WORKER_ID) {
+        this.WORKER_ID = WORKER_ID;
     }
 }

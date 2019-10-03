@@ -13,6 +13,8 @@ import ms.Jwellery.service.Service;
 import ms.Jwellery.validation.LoginValidation;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -31,17 +33,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping
 public class LoginController {
+
     static Logger logger = Logger.getLogger(LoginController.class);
     private LoginDetailsBean loginDetails;
     @Autowired
     private Service service;
     @Autowired
     private LoginValidation loginVallidate;
- @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    @Autowired
+    private JavaMailSender mailSender;
+    
+
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String viewForm(ModelMap model) {
         try {
-            logger.info("Enter inside viewform() method:::::::::::::");
-            logger.info("Enter inside viewform() method:::::::::::::");
+            Boolean flag;
+            logger.info("Enter inside viewform() login.htm:::::::::::::");
+            if(service.rowcountUser()==0){
+            return "redirect:/userregistration.htm";
+            }
             loginDetails = new LoginDetailsBean();
             model.addAttribute("LoginDetails", loginDetails);
             return "Login";
@@ -65,6 +75,13 @@ public class LoginController {
     public String processForm(@ModelAttribute("LoginDetails") @Validated LoginDetailsBean loginDetails, BindingResult result, ModelMap model, HttpSession session) throws RuntimeException {
 
         try {
+            String recipientAddress = "suvasmnt@yahoo.in";
+            String subject = "subject";
+            String message = "message:::::hellow";
+            System.out.println("To: " + recipientAddress);
+            System.out.println("Subject: " + subject);
+            System.out.println("Message: " + message);
+
             logger.info("Enter processform Method:::::::::::");
             loginDetails = service.userAuthentication(loginDetails);
             logger.info("Enter processform Method:::::::::::");
@@ -74,6 +91,11 @@ public class LoginController {
             } else {
                 session.setAttribute("LoginDetails", loginDetails);
                 model.addAttribute("LoginDetails", loginDetails);
+                SimpleMailMessage email = new SimpleMailMessage();
+                email.setTo(recipientAddress);
+                email.setSubject(subject);
+                email.setText(message);
+//                 mailSender.send(email);
                 return "redirect:/index.htm";
             }
         } catch (NullPointerException nulEx) {

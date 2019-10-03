@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.UserDetails" table="USER_DETAILS" schema="SYSTEM">
+        <composite-id name="id" class="ms.Jwellery.presistence.UserDetailsId">
+            <key-property name="userId" type="string">
+                <column name="USER_ID" length="20" />
+            </key-property>
+            <key-property name="userAdhar" type="string">
+                <column name="USER_ADHAR" length="15" />
+            </key-property>
+            <key-property name="userLogin" type="string">
+                <column name="USER_LOGIN" length="50" />
+            </key-property>
+        </composite-id>
+        <property name="roleId" type="string">
+            <column name="ROLE_ID" length="10" not-null="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="USER_PASSWORD" length="50" not-null="true" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="USER_EMAIL" length="50" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="USER_NAME" length="50" not-null="true" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="USER_ADDRESS" length="100" not-null="true" />
+        </property>
+        <property name="userMobile" type="string">
+            <column name="USER_MOBILE" length="15" not-null="true" />
+        </property>
+        <property name="userImage" type="byte[]">
+            <column name="USER_IMAGE" not-null="true" />
+        </property>
+        <property name="userImageName" type="string">
+            <column name="USER_IMAGE_NAME" length="100" not-null="true" />
+        </property>
+        <property name="forgotPassword" type="string">
+            <column name="FORGOT_PASSWORD" length="15" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -40,20 +40,24 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 public class WokerRegistrationController {
- static Logger logger = Logger.getLogger(WokerRegistrationController.class);
+
+    static Logger logger = Logger.getLogger(WokerRegistrationController.class);
     @Autowired
     private Service service;
     @Autowired
     private UserRegistrationValidation regValidate;
     private WorkerRegistrationBean registerBean;
     private LoginDetailsBean loginDetails;
-    
-    
 
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
-    public String viewForm(ModelMap model) {
-         try {
-             
+    public String viewForm(ModelMap model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+        try {
+            session = request.getSession(false);
+            loginDetails = (LoginDetailsBean) session.getAttribute("LoginDetails");
+            logger.info("Enter inside viewform() ************method:::::::::::::");
+            if (loginDetails == null && session.isNew()) {
+                return "redirect:/login.htm";
+            }
             logger.info("Enter inside viewform() ************method:::::::::::::");
             registerBean = new WorkerRegistrationBean();
             model.addAttribute("RegistrationDetails", registerBean);
@@ -67,7 +71,8 @@ public class WokerRegistrationController {
         }
 
     }
-     @InitBinder
+
+    @InitBinder
     public void dataBinding(WebDataBinder binder) {
         logger.info("Enter Data Binding Method:::::::::::");
         binder.addValidators(regValidate);
@@ -75,54 +80,53 @@ public class WokerRegistrationController {
 
     @RequestMapping(value = "/index.htm", method = RequestMethod.POST)
     public String AddUser(@ModelAttribute("RegistrationDetails") @Validated WorkerRegistrationBean regDetails, BindingResult result, ModelMap model, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws RuntimeException {
+         logger.info("Enter post Method:::::::::::1");
         File serverFile = null;
         FileInputStream fops;
         String filename = null;
         try {
             session = request.getSession(false);
             loginDetails = (LoginDetailsBean) session.getAttribute("LoginDetails");
-            logger.info("session check");
-             if(session != null && !session.isNew()) {
-//               return "redirect:/login.htm";
-            } else {
-//                logger.info("Enter Data Binding Method:::::::::::1"+loginDetails.getName());  
-            return "redirect:/login.htm";
-               }
+            if (loginDetails == null && session.isNew()) {
+                 logger.info("Enter post Method:::::::::::1");
+                return "redirect:/login.htm";
+            }
             if (result.hasErrors()) {
+                logger.info("Enter Data Binding Method:::::::::::1.5");
                 return "index";
             } else {
-            logger.info("Enter Data Binding Method:::::::::::1");
-            boolean flag = false;
-            MultipartFile multipartFile = null;
-            String applicationPath = null;
-            applicationPath = request.getSession().getServletContext().getRealPath("");
-            multipartFile = regDetails.getFiledata();
-           
-            if (!multipartFile.isEmpty()) {
-                 
-                filename = multipartFile.getOriginalFilename();
-                
-                regDetails.setFileName(multipartFile.getOriginalFilename());
-            }
-        
-            if (filename != null && !filename.equals("")) {
-                 
-                File dir = new File(applicationPath + "/");
-                 
-                if (!dir.exists()) {
-                    dir.mkdir();
+                logger.info("Enter Data Binding Method:::::::::::1");
+                boolean flag = false;
+                MultipartFile multipartFile = null;
+                String applicationPath = null;
+                applicationPath = request.getSession().getServletContext().getRealPath("");
+                multipartFile = regDetails.getFiledata();
+
+                if (!multipartFile.isEmpty()) {
+
+                    filename = multipartFile.getOriginalFilename();
+
+                    regDetails.setFileName(multipartFile.getOriginalFilename());
                 }
-                 
-                serverFile = new File(dir, filename);
-            }
-            flag = service.RegistrationUser(regDetails);
-            if (flag) {
-                model.addAttribute("Success", "Successfully product added.");
-                return "index";
-            } else {
-                model.addAttribute("Success", " product add not completed successfully.");
-                return "index";
-            }
+
+                if (filename != null && !filename.equals("")) {
+
+                    File dir = new File(applicationPath + "/");
+
+                    if (!dir.exists()) {
+                        dir.mkdir();
+                    }
+                    serverFile = new File(dir, filename);
+                }
+                regDetails.setWORKER_ADDED_BY(loginDetails.getId());
+                flag = service.RegistrationUser(regDetails);
+                if (flag) {
+                    model.addAttribute("Success", "Successfully product added.");
+                    return "index";
+                } else {
+                    model.addAttribute("Failure", "Registration not completed successfully.");
+                    return "index";
+                }
             }
         } catch (NullPointerException nulEx) {
             logger.info("NullPointerException in viewform:::::::::::::" + nulEx.getMessage());
@@ -137,5 +141,4 @@ public class WokerRegistrationController {
         }
     }
 
-  
 }

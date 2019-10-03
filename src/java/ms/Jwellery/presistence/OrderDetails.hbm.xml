@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.OrderDetails" table="ORDER_DETAILS" schema="HR">
+        <id name="orderId" type="string">
+            <column name="ORDER_ID" length="10" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="customerId" type="string">
+            <column name="CUSTOMER_ID" length="10" not-null="true" />
+        </property>
+        <property name="salseMan" type="string">
+            <column name="SALSE_MAN" length="30" not-null="true" />
+        </property>
+        <property name="totalQuantity" type="string">
+            <column name="TOTAL_QUANTITY" length="100" not-null="true" />
+        </property>
+        <property name="orderAddedBy" type="string">
+            <column name="ORDER_ADDED_BY" length="100" not-null="true" />
+        </property>
+        <property name="orderStatus" type="string">
+            <column name="ORDER_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

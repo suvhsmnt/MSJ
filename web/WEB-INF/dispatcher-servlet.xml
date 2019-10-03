@@ -16,34 +16,53 @@
    
 
     <!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>-->
-   <context:component-scan base-package="ms.Jwellery.web"/> 
+    <context:component-scan base-package="ms.Jwellery.web"/> 
     <context:component-scan base-package="ms.Jwellery.service"/>
     <context:component-scan base-package="ms.Jwellery.dao"/>
     <context:component-scan base-package="ms.Jwellery.validation"/>
+  
     
     
     
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="username" value="suvhsmnt@gmail.com" />
+        <property name="password" value="password1996@" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="4000000" />
     </bean>
     
-     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="/WEB-INF/messages"/>
         <property name="cacheSeconds" value="3000"/>
     </bean>
+ <mvc:annotation-driven />
+  
 
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
     define an explicit mapping for it.
     -->
-<!--    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
             </props>
         </property>
-    </bean>-->
+    </bean>
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -53,8 +72,8 @@
     <!--
     The index controller.
     -->
-<!--    <bean name="indexController"
-          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
-          p:viewName="index" />-->
+    <!--    <bean name="indexController"
+    class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+    p:viewName="index" />-->
 
 </beans>

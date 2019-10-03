@@ -10,6 +10,7 @@ package ms.Jwellery.model;
  * @author Suvh
  */
 public class UserRegistrationBean {
+
     private String Name;
     private String Email;
     private String Phone;

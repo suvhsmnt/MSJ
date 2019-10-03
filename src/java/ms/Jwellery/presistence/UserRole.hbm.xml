@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.UserRole" table="USER_ROLE" schema="SYSTEM">
+        <id name="roleId" type="string">
+            <column name="ROLE_ID" length="10" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="roleName" type="string">
+            <column name="ROLE_NAME" length="25" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

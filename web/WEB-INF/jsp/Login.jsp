@@ -1,105 +1,90 @@
-<%-- 
-    Document   : Login
-    Created on : Feb 12, 2018, 11:50:22 AM
-    Author     : Suvh
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Edmin</title>
-	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="css/theme.css" rel="stylesheet">
-	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-</head>
-<body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+        <link rel="shortcut icon" href="images/favicon_1.ico">
+        <title>Maa Santosi Jwellery</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/core.css" rel="stylesheet" type="text/css" />
+        <link href="css/components.css" rel="stylesheet" type="text/css" />
+        <link href="css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="js/modernizr.min.js"></script>  
+    </head>
+    <body>
+        <div class="account-pages"></div>
+        <div class="clearfix"></div>
+        <div class="wrapper-page">
+            <div class=" card-box">
+                <div class="panel-heading"> 
+                    <h3 class="text-center"> Sign In to <strong class="text-custom">MsJwellery</strong> </h3>
+                </div> 
+                <div class="panel-body">
+                    <form:form action="login.htm" method="post" class="form-horizontal m-t-20" commandName="LoginDetails"> 
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" required="" name="Password" placeholder="Password">
+                            </div>
+                        </div>
+                        <form:errors path="*" cssStyle="color:red"/>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <div class="checkbox checkbox-primary">
+                                    <input id="checkbox-signup" type="checkbox">
+                                    <label for="checkbox-signup">
+                                        Remember me
+                                    </label>
+                                </div>
 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-					<i class="icon-reorder shaded"></i>
-				</a>
-
-			  	<a class="brand" href="index.html">
-			  		Edmin
-			  	</a>
-
-				<div class="nav-collapse collapse navbar-inverse-collapse">
-				
-					<ul class="nav pull-right">
-
-						<li><a href="#">
-							Sign Up
-						</a></li>
-
-						
-
-						<li><a href="#">
-							Forgot your password?
-						</a></li>
-					</ul>
-				</div><!-- /.nav-collapse -->
-			</div>
-		</div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
-
-
-
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="module module-login span4 offset4">
-					
-                                            <form:form action="login.htm" method="post" class="form-vertical" commandName="LoginDetails">
-						<div class="module-head">
-							<h3>Sign In</h3>
-						</div>
-						<div class="module-body">
-							<div class="control-group">
-								<div class="controls row-fluid">
-									<input class="span12" name="Adhar" type="text"  placeholder="Username">
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls row-fluid">
-									<input class="span12" name="Password" type="password"  placeholder="Password">
-								</div>
-							</div>
-						</div>
-                                                <form:errors path="*" cssStyle="color:red"/>
-						<div class="module-foot">
-							<div class="control-group">
-								<div class="controls clearfix">
-									<button type="submit" class="btn btn-primary pull-right">Login</button>
-									<label class="checkbox">
-										<input type="checkbox"> Remember me
-									</label>
-								</div>
-							</div>
-						</div>
-					</form:form>
-				</div>
-			</div>
-		</div>
-	</div><!--/.wrapper-->
-
-	<div class="footer">
-		<div class="container">
-			 
-
-			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
-		</div>
-	</div>
-	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-</body>
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-40">
+                            <div class="col-xs-12">
+                                <button class="btn btn-pink btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                            </div>
+                        </div>
+                        <div class="form-group m-t-30 m-b-0">
+                            <div class="col-sm-12">
+                                <a href="Forgotpass.htm" class="text-dark"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                            </div>
+                        </div>
+                    </form:form> 
+                </div>   
+            </div>                                 
+        </div>        
+        <script>
+            var resizefunc = [];
+        </script>
+        <!-- jQuery  -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/detect.js"></script>
+        <script src="js/fastclick.js"></script>
+        <script src="js/jquery.slimscroll.js"></script>
+        <script src="js/jquery.blockUI.js"></script>
+        <script src="js/waves.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.core.js"></script>
+        <script src="js/jquery.app.js"></script>
+    </body>
+</html>

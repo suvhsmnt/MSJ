@@ -16,16 +16,17 @@ import org.springframework.validation.Validator;
  * @author Suvh
  */
 @Component
-public class LoginValidation implements Validator{
+public class LoginValidation implements Validator {
 
     @Override
     public boolean supports(Class<?> c) {
-return LoginDetailsBean.class.isAssignableFrom(c);
+        return LoginDetailsBean.class.isAssignableFrom(c);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-ValidationUtils.rejectIfEmptyOrWhitespace(errors, "Adhar", "field.Adhar.empty");
- ValidationUtils.rejectIfEmptyOrWhitespace(errors, "Password", "field.Password.empty");    }
-    
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "field.username.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "Password", "field.Password.empty");
+    }
+
 }

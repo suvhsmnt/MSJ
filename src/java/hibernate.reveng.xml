@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-schema="HR"/>
-  <table-filter match-name="WORKER_REGISTRATION"/>
+  <schema-selection match-schema="SYSTEM"/>
+<!--  <table-filter match-name="WORKER_REGISTRATION"/>-->
+<!--  <table-filter match-name="USER_DETAILS"/>-->
+<!--  <table-filter match-name="USER_ROLE"/>-->
+  <!--<table-filter match-name="ITEM_TABLE"/>-->
+    <!--<table-filter match-name="WORKER_LOSS"/>-->
+        <!--<table-filter match-name="CUSTOMER"/>-->
+         <table-filter match-name="CUSTOMER_GOLDSTOCK"/>
 </hibernate-reverse-engineering>

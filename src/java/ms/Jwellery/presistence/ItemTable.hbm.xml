@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.ItemTable" table="ITEM_TABLE" schema="SYSTEM">
+        <id name="typeId" type="string">
+            <column name="TYPE_ID" length="20" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="20" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

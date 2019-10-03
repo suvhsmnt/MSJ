@@ -1,15 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 9, 2018 4:45:00 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="ms.Jwellery.presistence.WorkerRegistration" table="WORKER_REGISTRATION" schema="HR" optimistic-lock="version">
+    <class name="ms.Jwellery.presistence.WorkerRegistration" table="WORKER_REGISTRATION" schema="SYSTEM">
         <composite-id name="id" class="ms.Jwellery.presistence.WorkerRegistrationId">
+            <key-property name="workerId" type="string">
+                <column name="WORKER_ID" length="20" />
+            </key-property>
+            <key-property name="userName" type="string">
+                <column name="USER_NAME" length="25" />
+            </key-property>
             <key-property name="workerAdhar" type="string">
                 <column name="WORKER_ADHAR" length="12" />
-            </key-property>
-            <key-property name="workerId" type="string">
-                <column name="WORKER_ID" length="10" />
             </key-property>
         </composite-id>
         <property name="workerEmail" type="string">
@@ -24,9 +27,6 @@
         <property name="workerPassword" type="string">
             <column name="WORKER_PASSWORD" length="50" not-null="true" />
         </property>
-        <property name="passToken" type="int">
-            <column name="PASS_TOKEN" precision="6" scale="0" not-null="true" />
-        </property>
         <property name="workerMobile" type="string">
             <column name="WORKER_MOBILE" length="10" not-null="true" />
         </property>
@@ -36,14 +36,20 @@
         <property name="imageName" type="string">
             <column name="IMAGE_NAME" length="100" not-null="true" />
         </property>
-        <property name="workerGold" type="big_decimal">
-            <column name="WORKER_GOLD" precision="10" scale="3" not-null="true" />
+        <property name="workerType" type="string">
+            <column name="WORKER_TYPE" length="10" not-null="true" />
         </property>
-        <property name="workerNetbal" type="big_decimal">
-            <column name="WORKER__NETBAL" precision="10" not-null="true" />
+        <property name="forgotPassword" type="string">
+            <column name="FORGOT_PASSWORD" length="15" not-null="true" />
         </property>
-        <property name="workerStone" type="int">
-            <column name="WORKER__STONE" precision="5" scale="0" not-null="true" />
+        <property name="workerStatus" type="string">
+            <column name="WORKER_STATUS" length="10" not-null="true" />
+        </property>
+        <property name="workerSalary" type="string">
+            <column name="WORKER_SALARY" length="10" not-null="true" />
+        </property>
+        <property name="workerAddedBy" type="string">
+            <column name="WORKER_ADDED_BY" length="20" not-null="true" />
         </property>
         <property name="logDt" type="date">
             <column name="LOG_DT" length="7" not-null="true" />
