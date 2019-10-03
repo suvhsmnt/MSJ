@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.Making" table="MAKING" schema="HR">
+        <id name="makingId" type="string">
+            <column name="MAKING_ID" length="10" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="orderId" type="string">
+            <column name="ORDER_ID" length="10" not-null="true" />
+        </property>
+        <property name="workerId" type="string">
+            <column name="WORKER_ID" length="10" not-null="true" />
+        </property>
+        <property name="returnGold" type="big_decimal">
+            <column name="RETURN_GOLD" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="returnStone" type="big_decimal">
+            <column name="RETURN_STONE" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="lossPercentage" type="big_decimal">
+            <column name="LOSS_PERCENTAGE" precision="10" scale="3" not-null="true" />
+        </property>
+        <property name="assignBy" type="string">
+            <column name="ASSIGN_BY" length="50" not-null="true" />
+        </property>
+        <property name="assignStatus" type="string">
+            <column name="ASSIGN_STATUS" length="15" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

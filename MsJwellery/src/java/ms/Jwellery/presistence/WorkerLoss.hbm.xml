@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.WorkerLoss" table="WORKER_LOSS" schema="SYSTEM">
+        <composite-id name="id" class="ms.Jwellery.presistence.WorkerLossId">
+            <key-property name="workType" type="string">
+                <column name="WORK_TYPE" length="20" />
+            </key-property>
+            <key-property name="workPhase" type="string">
+                <column name="WORK_PHASE" length="20" />
+            </key-property>
+            <key-property name="workerId" type="string">
+                <column name="WORKER_ID" length="20" />
+            </key-property>
+        </composite-id>
+        <property name="lastAssignedBy" type="string">
+            <column name="LAST_ASSIGNED_BY" length="30" not-null="true" />
+        </property>
+        <property name="lossPercentage" type="string">
+            <column name="LOSS_PERCENTAGE" length="10" not-null="true" />
+        </property>
+        <property name="lastUpdated" type="date">
+            <column name="LAST_UPDATED" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

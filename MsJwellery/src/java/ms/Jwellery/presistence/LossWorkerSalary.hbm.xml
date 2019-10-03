@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.LossWorkerSalary" table="LOSS_WORKER_SALARY" schema="HR">
+        <id name="txnId" type="string">
+            <column name="TXN_ID" length="15" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="workerId" type="string">
+            <column name="WORKER_ID" length="10" not-null="true" />
+        </property>
+        <property name="slNo" type="string">
+            <column name="SL_NO" length="5" not-null="true" />
+        </property>
+        <property name="purpose" type="string">
+            <column name="PURPOSE" length="50" not-null="true" />
+        </property>
+        <property name="creditDebit" type="string">
+            <column name="CREDIT_DEBIT" length="15" not-null="true" />
+        </property>
+        <property name="lastUpdate" type="string">
+            <column name="LAST_UPDATE" length="15" not-null="true" />
+        </property>
+        <property name="goldCurrency" type="string">
+            <column name="GOLD_CURRENCY" length="10" not-null="true" />
+        </property>
+        <property name="currentBalance" type="string">
+            <column name="CURRENT_BALANCE" length="15" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

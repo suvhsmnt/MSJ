@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.CustomerGoldstock" table="CUSTOMER_GOLDSTOCK" schema="SYSTEM" optimistic-lock="version">
+        <composite-id name="id" class="ms.Jwellery.presistence.CustomerGoldstockId">
+            <key-property name="customerId" type="string">
+                <column name="CUSTOMER_ID" length="20" />
+            </key-property>
+            <key-property name="stockId" type="string">
+                <column name="STOCK_ID" length="20" />
+            </key-property>
+            <key-property name="goldType" type="string">
+                <column name="GOLD_TYPE" length="25" />
+            </key-property>
+            <key-property name="slNo" type="int">
+                <column name="SL_NO" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="purpose" type="string">
+            <column name="PURPOSE" length="50" not-null="true" />
+        </property>
+        <property name="crDb" type="string">
+            <column name="CR_DB" length="20" not-null="true" />
+        </property>
+        <property name="currentBalance" type="string">
+            <column name="CURRENT_BALANCE" length="20" not-null="true" />
+        </property>
+        <property name="stockAddedBy" type="string">
+            <column name="STOCK_ADDED_BY" length="20" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

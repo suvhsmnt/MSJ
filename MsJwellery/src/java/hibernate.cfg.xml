@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username">system</property>
+    <property name="hibernate.connection.password">SYSTEM</property>
+    <mapping resource="ms/Jwellery/presistence/UserDetails.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/UserRole.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/Product.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/WorkerLoss.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/WorkerRegistration.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/LossWorkerSalary.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/ItemTable.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/OrderDescription.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/Customer.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/OrderDetails.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/Making.hbm.xml"/>
+    <mapping resource="ms/Jwellery/presistence/CustomerGoldstock.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

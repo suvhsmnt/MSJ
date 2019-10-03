@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 29, 2018 7:40:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="ms.Jwellery.presistence.Product" table="PRODUCT" schema="HR">
+        <id name="productId" type="string">
+            <column name="PRODUCT_ID" length="15" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="orderDivideId" type="string">
+            <column name="ORDER_DIVIDE_ID" length="10" not-null="true" />
+        </property>
+        <property name="orderType" type="string">
+            <column name="ORDER_TYPE" length="10" not-null="true" />
+        </property>
+        <property name="orderStatus" type="string">
+            <column name="ORDER_STATUS" length="7" not-null="true" />
+        </property>
+        <property name="actWt" type="string">
+            <column name="ACT_WT" length="10" not-null="true" />
+        </property>
+        <property name="logDt" type="date">
+            <column name="LOG_DT" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
